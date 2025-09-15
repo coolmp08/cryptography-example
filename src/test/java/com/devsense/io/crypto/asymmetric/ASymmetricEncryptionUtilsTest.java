@@ -2,6 +2,7 @@ package com.devsense.io.crypto.asymmetric;
 
 import org.junit.jupiter.api.Test;
 
+import java.security.KeyPair;
 import java.util.HexFormat;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,5 +26,20 @@ class ASymmetricEncryptionUtilsTest {
         } catch (Exception e) {
             fail(e);
         }
+    }
+
+    @Test
+    void testRSAEncryptionDecryption() throws Exception{
+        KeyPair keyPair = ASymmetricEncryptionUtils.generateRSAKeyPair();
+        String originalText = "Hello, World from the first asymmetric cryptography example!";
+        byte[] cipherText = ASymmetricEncryptionUtils.performRSAEncryption(originalText.getBytes(), keyPair.getPrivate());
+        assertNotNull(cipherText);
+        System.out.println(HexFormat.of().formatHex(cipherText));
+
+        byte[] decryptedText = ASymmetricEncryptionUtils.performRSADecryption(cipherText, keyPair.getPublic());
+        assertNotNull(decryptedText);
+        assertEquals(originalText, new String(decryptedText));
+        System.out.println(HexFormat.of().formatHex(decryptedText));
+
     }
 }
