@@ -1,4 +1,4 @@
-package com.devsense.io.crypto.symmetric;
+package io.devsense.crypto.symmetric;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;

@@ -1,4 +1,4 @@
-package com.devsense.io.crypto.asymmetric;
+package io.devsense.crypto.asymmetric;
 
 import org.junit.jupiter.api.Test;
 

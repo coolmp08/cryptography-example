@@ -1,4 +1,4 @@
-package com.devsense.io.crypto.symmetric;
+package io.devsense.crypto.symmetric;
 
 import org.junit.jupiter.api.Test;
 
